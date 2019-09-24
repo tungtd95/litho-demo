@@ -1,0 +1,13 @@
+<resources>
+  <dimen name="sku_image_size">120dp</dimen>
+  <dimen name="sku_height">228dp</dimen>
+  <dimen name="sku_list_height">240dp</dimen>
+  <dimen name="sku_width">144dp</dimen>
+  <dimen name="sku_title_size">12sp</dimen>
+  <dimen name="sku_price_size">14sp</dimen>
+  <dimen name="sku_corner_radius">8dp</dimen>
+  <dimen name="sku_elevation">2dp</dimen>
+  <dimen name="sku_image_margin">4dp</dimen>
+  <dimen name="sku_padding">8dp</dimen>
+  <dimen name="sku_margin">8dp</dimen>
+</resources>
