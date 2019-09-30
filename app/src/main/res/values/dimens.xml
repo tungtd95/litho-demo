@@ -10,4 +10,10 @@
   <dimen name="sku_image_margin">4dp</dimen>
   <dimen name="sku_padding">8dp</dimen>
   <dimen name="sku_margin">8dp</dimen>
+
+  <dimen name="text_content">16dp</dimen>
+  <dimen name="text_normal">14dp</dimen>
+  <dimen name="delivery_method_padding">20dp</dimen>
+  <dimen name="card_large_corner">16dp</dimen>
+  <dimen name="dp_96">96dp</dimen>
 </resources>

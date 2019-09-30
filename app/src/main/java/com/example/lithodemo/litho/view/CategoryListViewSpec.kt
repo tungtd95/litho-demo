@@ -10,6 +10,7 @@ import com.facebook.litho.sections.*
 import com.facebook.litho.sections.annotations.*
 import com.facebook.litho.sections.common.*
 import com.facebook.litho.sections.widget.*
+import com.facebook.yoga.*
 
 @GroupSectionSpec
 object CategoryListViewSpec {
@@ -20,6 +21,21 @@ object CategoryListViewSpec {
         @Prop categories: DynamicValue<List<Category>?>
     ): Children {
         val builder = Children.create()
+        builder.child(
+            SingleComponentSection.create(c).component(ShoppingMethodView.create(c).build())
+        )
+        builder.child(
+            SingleComponentSection.create(c)
+                .component(
+                    Row.create(c)
+                        .child(HighLightFeatureView.create(c).build())
+                        .justifyContent(YogaJustify.SPACE_AROUND)
+                        .marginRes(YogaEdge.ALL, R.dimen.sku_margin)
+                )
+        )
+        builder.child(
+            SingleComponentSection.create(c).component(MenuView.create(c).build())
+        )
         categories.get()?.forEach {
             val list = RecyclerCollectionComponent.create(c)
                 .heightRes(R.dimen.sku_list_height)
