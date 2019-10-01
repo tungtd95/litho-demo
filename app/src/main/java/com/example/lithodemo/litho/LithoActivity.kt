@@ -1,10 +1,11 @@
 package com.example.lithodemo.litho
 
+import android.animation.*
 import android.os.*
-import android.util.*
 import androidx.appcompat.app.*
 import androidx.lifecycle.*
 import androidx.recyclerview.widget.*
+import androidx.recyclerview.widget.RecyclerView.SCROLL_STATE_IDLE
 import com.example.lithodemo.*
 import com.example.lithodemo.R
 import com.example.lithodemo.litho.view.*
@@ -12,8 +13,6 @@ import com.example.lithodemo.model.*
 import com.facebook.litho.*
 import com.facebook.litho.sections.*
 import com.facebook.litho.sections.widget.*
-import com.facebook.litho.widget.*
-import com.facebook.yoga.*
 import kotlin.math.*
 
 class LithoActivity : AppCompatActivity() {
@@ -41,6 +40,21 @@ class LithoActivity : AppCompatActivity() {
                     .build()
             )
             .onScrollListener(object : RecyclerView.OnScrollListener() {
+                override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
+                    super.onScrollStateChanged(recyclerView, newState)
+                    var stickyProgress = stickyAlpha.get()
+                    if (newState == SCROLL_STATE_IDLE) {
+                        stickyProgress =
+                            if (stickyProgress > 0.5f) {
+                                1f
+                            } else {
+                                0f
+                            }
+                    }
+                    stickyAlpha.set(stickyProgress)
+                    stickyTransitionY.set(-(1 - stickyProgress) * resources.getDimension(R.dimen.dp_72))
+                }
+
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     val targetPosition = 2
                     val currentFirstPosition =
@@ -63,6 +77,7 @@ class LithoActivity : AppCompatActivity() {
         val stickyMenu = StickyMenuView.create(componentContext)
             .alphaDynamic(stickyAlpha)
             .transY(stickyTransitionY)
+            .stateListAnimator(StateListAnimator())
 
         setContentView(
             LithoView.create(

@@ -20,7 +20,7 @@ object StickyMenuViewSpec {
             .widthPercent(100f)
             .content(
                 Text.create(c)
-                    .text("Sticky sticky")
+                    .text("Sticky so you don't drop it")
                     .textSizeRes(R.dimen.text_content)
                     .heightPercent(100f)
             )
