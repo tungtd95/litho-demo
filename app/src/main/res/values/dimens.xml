@@ -16,4 +16,5 @@
   <dimen name="delivery_method_padding">20dp</dimen>
   <dimen name="card_large_corner">16dp</dimen>
   <dimen name="dp_96">96dp</dimen>
+  <dimen name="dp_72">72dp</dimen>
 </resources>

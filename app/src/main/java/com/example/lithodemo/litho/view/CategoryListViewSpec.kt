@@ -10,6 +10,7 @@ import com.facebook.litho.sections.*
 import com.facebook.litho.sections.annotations.*
 import com.facebook.litho.sections.common.*
 import com.facebook.litho.sections.widget.*
+import com.facebook.litho.widget.*
 import com.facebook.yoga.*
 
 @GroupSectionSpec
